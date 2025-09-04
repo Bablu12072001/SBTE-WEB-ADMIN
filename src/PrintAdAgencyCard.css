@@ -1,0 +1,28 @@
+.scrolling-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.scrolling-images {
+  display: flex;
+  animation: scrollLeft 20s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Ensure images don't shrink weirdly */
+.scrolling-images img {
+  display: block;
+}

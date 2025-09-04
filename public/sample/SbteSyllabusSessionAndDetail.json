@@ -1,0 +1,32 @@
+[						
+    {						
+"        ""Session"": ""From Admission Session 2024"","						
+"        ""lastModifyDate"": ""20-May-2025 (First Semester, Rev. - 1.2)"","						
+"        ""branches"": ["						
+            {						
+"                ""slNo"": 1,"						
+"                ""branch"": ""Agricultural Engineering"","						
+"                ""branch_code"": 11,"						
+"                ""Semester"": ["						
+"                    ""1st Semester "","						
+"                    ""2nd Semester"","						
+"                    ""3rd Semester "","						
+"                    ""4th Semester "","						
+"                    ""5th Semester "","						
+"                    ""6th Semester """						
+"                ],"						
+"                ""link"": ["						
+"                    ""Syllabus/2024-25/S01/Rev 1.2/11. Agricultural Engineering.pdf"","						
+"                    ""Syllabus/2024-25/S02/11. Agricultural Engineering.pdf"","						
+"                    ""Syllabus/2024-25/S03/11. Diploma in Agricultural Engineering.pdf"","						
+"                    ""Syllabus/2024-25/S04/11. Diploma in Agricultural Engineering.pdf"","						
+"                    ""Syllabus/2024-25/S05/11. Agricultural Engineering.pdf"","						
+"                    ""Syllabus/2024-25/S06/11. Agricultural Engineering.pdf"""						
+"                ],"						
+"                ""isNew"": false,"						
+"                ""isUpdated"": false"						
+"            },"						
+        ]						
+    }						
+]						
+	Sample file					

@@ -1,0 +1,18 @@
+.scroll-container {
+  animation: scrollUp 15s linear infinite;
+  display: inline-block;
+}
+.scroll-container:hover {
+  animation-play-state: paused;
+  /* 🛑 Pause on hover */
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}

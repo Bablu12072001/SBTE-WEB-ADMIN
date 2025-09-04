@@ -123,46 +123,34 @@ export default function RegistrationForm() {
     <>
       <Box
         sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          p: { xs: 2, md: 4 },
+          backgroundColor: "#f0f2f5",
           minHeight: "100vh",
-          gap: 2,
+          py: 6,
+          px: 2,
         }}
       >
-        {/* Side Title */}
         <Box
           sx={{
-            bgcolor: "#043194",
-            width: { xs: "100%", md: 100 },
-            textAlign: "center",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            writingMode: { md: "vertical-rl", xs: "horizontal-tb" },
-            transform: { md: "rotate(180deg)" },
-            color: "white",
-            fontSize: { xs: 24, sm: 28 },
-            fontWeight: "bold",
-            borderRadius: { md: "0 14px 14px 0", xs: "8px" },
-            p: 2,
+            maxWidth: "1100px",
+            margin: "0 auto",
+            backgroundColor: "#fff",
+            borderRadius: "16px",
+            boxShadow: 4,
+            p: { xs: 3, sm: 6 },
           }}
         >
-          Registration
-        </Box>
+          <Typography
+            variant="h4"
+            sx={{
+              textAlign: "center",
+              mb: 4,
+              fontWeight: "bold",
+              color: "#043194",
+            }}
+          >
+            Company Registration Form
+          </Typography>
 
-        {/* Form Area */}
-        <Box
-          sx={{
-            bgcolor: "#fafafa",
-            flexGrow: 1,
-            px: { xs: 2, sm: 4 },
-            py: { xs: 4, sm: 6 },
-            borderRadius: 2,
-            boxShadow: 3,
-            width: "100%",
-          }}
-        >
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3}>
               {serverMessage && (
@@ -180,7 +168,7 @@ export default function RegistrationForm() {
                 ["company_official_website", "Company Website"],
                 ["company_email", "Company Email"],
               ].map(([name, label]) => (
-                <Grid item xs={12} sm={6} md={4} key={name}>
+                <Grid item xs={12} sm={6} key={name}>
                   <TextField
                     label={label}
                     name={name}
@@ -200,12 +188,12 @@ export default function RegistrationForm() {
               ))}
 
               {["phone_number", "company_phone_number"].map((name) => (
-                <Grid item xs={12} sm={6} md={4} key={name}>
+                <Grid item xs={12} sm={6} key={name}>
                   <TextField
                     label={
                       name === "phone_number"
-                        ? "Phone No."
-                        : "Company Phone No."
+                        ? "Phone Number"
+                        : "Company Phone Number"
                     }
                     name={name}
                     value={form[name]}
@@ -224,7 +212,6 @@ export default function RegistrationForm() {
                 </Grid>
               ))}
 
-              {/* Passwords */}
               {[
                 ["password", "Password", showPassword, toggleShowPassword],
                 [
@@ -234,7 +221,7 @@ export default function RegistrationForm() {
                   toggleShowConfirm,
                 ],
               ].map(([name, label, visible, toggleFn]) => (
-                <Grid item xs={12} sm={6} md={4} key={name}>
+                <Grid item xs={12} sm={6} key={name}>
                   <TextField
                     label={label}
                     name={name}
@@ -263,8 +250,7 @@ export default function RegistrationForm() {
                 </Grid>
               ))}
 
-              {/* Gender */}
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item xs={12} sm={6}>
                 <FormControl fullWidth error={!!errors.gender}>
                   <FormLabel>Gender</FormLabel>
                   <RadioGroup
@@ -297,16 +283,30 @@ export default function RegistrationForm() {
                 </FormControl>
               </Grid>
 
-              {/* Submit Button */}
-              <Grid item xs={12} sx={{ textAlign: "center" }}>
-                <Button variant="contained" color="primary" type="submit">
+              <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  size="large"
+                  sx={{
+                    backgroundColor: "#043194",
+                    color: "#fff",
+                    px: 6,
+                    py: 1.5,
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    borderRadius: 3,
+                    ":hover": {
+                      backgroundColor: "#032973",
+                    },
+                  }}
+                >
                   REGISTER
                 </Button>
               </Grid>
 
-              {/* Sign In Link */}
-              <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
-                <Typography variant="body2">
+              <Grid item xs={12} sx={{ textAlign: "center", mt: 1 }}>
+                <Typography>
                   Already Registered?{" "}
                   <Button
                     variant="text"

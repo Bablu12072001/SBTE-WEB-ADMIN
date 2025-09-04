@@ -105,7 +105,7 @@ const PlacementCardSection = () => {
           mb: 3,
         }}
       >
-        Upcoming Placements
+        Top Companies
       </Typography>
 
       {loading ? (
@@ -140,7 +140,7 @@ const PlacementCardSection = () => {
                 key={`${placement.id}-${index}`}
                 image={placement.company_photo}
                 companyName={placement.company_name}
-                placedDate={placement.date}
+                placedDate={placement.date ? placement.date : "\u00A0"} // ✅ Conditionally render date or blank
               />
             ))}
           </Box>

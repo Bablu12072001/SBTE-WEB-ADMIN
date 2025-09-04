@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  Box,
-  Typography,
-  Grid,
-  Paper,
-  CircularProgress,
-  Link,
-} from "@mui/material";
+import { Box, Typography, Paper, CircularProgress, Link } from "@mui/material";
 
 export default function PlacementBrochure() {
   const [brochures, setBrochures] = useState([]);
@@ -24,7 +17,7 @@ export default function PlacementBrochure() {
           setError("Failed to fetch brochures.");
         }
       })
-      .catch((err) => {
+      .catch(() => {
         setError("Something went wrong.");
       })
       .finally(() => {
@@ -38,7 +31,9 @@ export default function PlacementBrochure() {
         p: 4,
         backgroundColor: "#f7f9fb",
         minHeight: "100vh",
-        paddingLeft: { xs: 3, sm: 7, md: 14 },
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
       {/* Title */}
@@ -47,7 +42,7 @@ export default function PlacementBrochure() {
         alignItems="center"
         justifyContent="center"
         mb={4}
-        flexWrap="wrap"
+        width="100%"
       >
         <Box
           sx={{
@@ -90,54 +85,57 @@ export default function PlacementBrochure() {
       )}
 
       {/* Brochure Cards */}
-      <Grid container spacing={2}>
+      <Box
+        sx={{
+          width: "100%",
+          maxWidth: 800,
+          display: "flex",
+          flexDirection: "column",
+          gap: 3, // spacing between cards
+        }}
+      >
         {brochures.map((item) => (
-          <Grid item xs={12} sm={6} md={3} key={item.id}>
-            <Paper
-              elevation={0}
+          <Paper
+            key={item.id}
+            elevation={3}
+            sx={{
+              width: "100%",
+              borderTop: "6px solid #0000c2",
+              borderRight: "6px solid #0000c2",
+              borderRadius: "12px",
+              p: 4,
+              textAlign: "center",
+              fontWeight: 500,
+              color: "#000",
+              boxShadow: 3,
+              minHeight: 150,
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "scale(1.02)",
+                boxShadow: "0px 6px 20px rgba(0, 0, 255, 0.4)",
+              },
+            }}
+          >
+            <Link
+              href={item.attachment}
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="hover"
               sx={{
-                width: 260, // ✅ Fixed width added here
-                borderTop: "4px solid #0000c2",
-                borderRight: "4px solid #0000c2",
-                borderRadius: "6px",
-                p: 2,
-                textAlign: "center",
-                fontWeight: 500,
-                color: "#000",
-                boxShadow: 1,
-                minHeight: 80,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                flexWrap: "wrap",
-                mx: "auto", // Center the card horizontally
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                fontWeight: "bold",
+                fontSize: 18,
+                color: "#1e3d8f",
+                wordBreak: "break-word",
                 "&:hover": {
-                  transform: "scale(1.03)",
-                  boxShadow: "0px 4px 12px rgba(0, 0, 255, 0.5)",
+                  color: "#0000c2",
                 },
               }}
             >
-              <Link
-                href={item.attachment}
-                target="_blank"
-                rel="noopener noreferrer"
-                underline="hover"
-                sx={{
-                  fontWeight: "bold",
-                  fontSize: 14,
-                  color: "#1e3d8f",
-                  "&:hover": {
-                    color: "#0000c2",
-                  },
-                }}
-              >
-                {item.label || "Download Brochure"}
-              </Link>
-            </Paper>
-          </Grid>
+              {item.label || "Download Brochure"}
+            </Link>
+          </Paper>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 }

@@ -9,10 +9,12 @@ import {
   useTheme,
   CircularProgress,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const navigate = useNavigate(); // ✅ Hook to navigate
 
   const [carouselImages, setCarouselImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -126,26 +128,50 @@ const LandingPage = () => {
             meet industry demands and contribute effectively in their respective
             fields.
           </Typography>
-
-          <Box textAlign="center">
-            <Button
-              variant="contained"
-              sx={{
-                textTransform: "none",
-                fontWeight: "bold",
-                backgroundColor: "#1D4ED8",
-                px: 3,
-                py: 1.2,
-                fontSize: { xs: "0.9rem", sm: "1rem" },
-                "&:hover": {
-                  backgroundColor: "#2c387e",
-                },
-              }}
-            >
-              Let's get started
-            </Button>
-          </Box>
         </Container>
+        <Box sx={{ textAlign: "center", bgcolor: "#e3f2fd", py: 4 }}>
+          <Typography
+            variant="h6"
+            fontWeight="bold"
+            align="center"
+            gutterBottom
+            sx={{ fontSize: { xs: "1rem", sm: "1.2rem", md: "1.25rem" } }}
+          >
+            Ready to Recruit from SBTE Bihar?
+          </Typography>
+
+          <Typography
+            variant="body1"
+            align="center"
+            color="text.secondary"
+            sx={{
+              mb: 3,
+              px: { xs: 2, sm: 4, md: 0 },
+              fontSize: { xs: "0.9rem", sm: "1rem" },
+            }}
+          >
+            Join the league of top companies recruiting from SBTE Bihar.
+            Register now to access our talent pool.
+          </Typography>
+
+          <Button
+            variant="contained"
+            sx={{
+              textTransform: "none",
+              fontWeight: "bold",
+              backgroundColor: "#1D4ED8",
+              px: 3,
+              py: 1.2,
+              fontSize: { xs: "0.9rem", sm: "1rem" },
+              "&:hover": {
+                backgroundColor: "#2c387e",
+              },
+            }}
+            onClick={() => navigate("/user-portal/login")}
+          >
+            Register as Recruiter
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
